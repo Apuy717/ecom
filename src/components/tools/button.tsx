@@ -3,22 +3,24 @@ import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
 
 const Button = (props) => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={props.onPress}
-      style={[
-        styles.Button,
-        {
-          height: props.height ? props.height : '4%',
-          width: props.width ? props.width : '30%',
-          borderRadius: props.borderRadius ? props.borderRadius : 4,
-          backgroundColor: props.backgroundColor
-            ? props.backgroundColor
-            : 'green',
-        },
-      ]}>
-      <Text style={styles.Text}>{props.title}</Text>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={props.onPress}
+        style={[
+          styles.Button,
+          {
+            height: props.height ? props.height : '4%',
+            width: props.width ? props.width : '30%',
+            borderRadius: props.borderRadius ? props.borderRadius : 4,
+            backgroundColor: props.backgroundColor
+              ? props.backgroundColor
+              : 'green',
+          },
+        ]}>
+        <Text style={styles.Text}>{props.title}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
