@@ -14,6 +14,7 @@ import {
   Messages,
   Notifications,
   DetailItem,
+  DetailMessage,
 } from '.';
 import {AntDesign} from '../components/tools/Icon';
 
@@ -72,6 +73,7 @@ const StackNav = () => {
       <Stack.Screen name="Search" component={SearchItem} />
       <Stack.Screen name="Notifikasi" component={Notifications} />
       <Stack.Screen name="Detail" component={DetailItem} />
+      <Stack.Screen name="DetailMessage" component={DetailMessage} />
     </Stack.Navigator>
   );
 };

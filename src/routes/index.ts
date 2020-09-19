@@ -7,7 +7,8 @@ import Swiper from '../pages/user/coba';
 import SearchItem from './../pages/item/searchItem';
 import Messages from '../pages/user/notification/messages';
 import Notifications from '../pages/user/notification/notifications';
-import DetailItem from './../pages/item/detailItem';
+import DetailItem from './../pages/item/detail/index';
+import DetailMessage from './../pages/user/notification/detailMessage';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   Messages,
   Notifications,
   DetailItem,
+  DetailMessage,
 };

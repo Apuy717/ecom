@@ -14,7 +14,9 @@ const CardHorizontal = (props) => {
   return (
     <View style={styles.card}>
       <View style={styles.cardTitle}>
-        <Text style={styles.Text}>{props.title}</Text>
+        <Text style={styles.Text} allowFontScaling={false}>
+          {props.title}
+        </Text>
       </View>
       <View style={styles.cardContent}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -28,10 +30,18 @@ const CardHorizontal = (props) => {
                   <Image source={{uri: props.image}} style={styles.image} />
                 </View>
                 <View style={styles.contentSection}>
-                  <Text style={styles.textContnt}>iphone 11 pro 255gb</Text>
-                  <Text style={styles.textContnt}>Rp.35.000.000,00</Text>
-                  <Text style={styles.textContnt}>**** best</Text>
-                  <Text style={styles.textContnt}>tersedia 20</Text>
+                  <Text style={styles.textContnt} allowFontScaling={false}>
+                    iphone 11 pro 255gb
+                  </Text>
+                  <Text style={styles.textContnt} allowFontScaling={false}>
+                    Rp.35.000.000,00
+                  </Text>
+                  <Text style={styles.textContnt} allowFontScaling={false}>
+                    **** best
+                  </Text>
+                  <Text style={styles.textContnt} allowFontScaling={false}>
+                    tersedia 20
+                  </Text>
                 </View>
               </View>
             </TouchableOpacity>
