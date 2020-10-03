@@ -2,9 +2,9 @@ import React, {useRef} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {onScrollEvent, useValue} from 'react-native-redash';
+import CardHorizontal from '../../../components/layout/cardHorizontal';
 import Header from './Header';
 import HeaderImage, {HEADER_IMAGE_HEIGHT} from './HeaderImage';
-import CardHorizontal from '../../../components/layout/cardHorizontal';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   cardTitle: {marginTop: 10, padding: 10},
 });
 
-export default () => {
+export default ({route}) => {
   const dat = [1, 2, 3, 4];
   const scrollView = useRef<Animated.ScrollView>(null);
   const y = useValue(0);

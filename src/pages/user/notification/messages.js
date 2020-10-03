@@ -23,7 +23,9 @@ const Messages = ({navigation}) => {
                   />
                 </View>
                 <View style={styles.nickName}>
-                  <Text style={styles.Text}>Apuy Store</Text>
+                  <Text allowFontScaling={false} style={styles.Text}>
+                    Apuy Store
+                  </Text>
                   <Text style={styles.textValue}>
                     Assalamualaikum wr wb, silahkan kak boleh langsung order
                     barang tersedia kok..
@@ -66,6 +68,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     fontSize: 15,
+    fontFamily: 'Roboto-Regular',
   },
   textValue: {color: 'grey'},
   hed: {

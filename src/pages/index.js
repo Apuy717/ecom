@@ -1,19 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import {
+  Dimensions,
   Image,
   StatusBar,
   StyleSheet,
   Text,
   View,
-  Dimensions,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import CardGlobal from '../components/layout/cardGlobal';
 import CardHorizontal from '../components/layout/cardHorizontal';
-import HeaderSearch from '../components/layout/headerSearch';
-import {FontAwesome5} from '../components/tools/Icon';
 import Category from '../components/layout/category';
+import HeaderSearch from '../components/layout/headerSearch';
 const width = Dimensions.get('screen').width;
 
 const Home = (props) => {
@@ -41,6 +40,67 @@ const Home = (props) => {
     {title: 'elektrik rk', image: vapor},
     {title: 'Bunga', image: bunga},
   ];
+
+  const img = [
+    {
+      image:
+        'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+      desc: 'Silent Waters in the mountains in midst of Himilayas',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+      desc:
+        'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+      desc:
+        'Sample Description below the image for representation purpose only',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1568700942090-19dc36fab0c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+      desc:
+        'Sample Description below the image for representation purpose only',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1584271854089-9bb3e5168e32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80',
+      desc:
+        'Sample Description below the image for representation purpose only',
+    },
+    {
+      image: 'https://via.placeholder.com/600/771796',
+      desc:
+        'Sample Description below the image for representation purpose only',
+    },
+  ];
+
+  const reff = useRef();
+  const [end, setEnd] = useState(0);
+  console.log(end);
+
+  const setSelectedIndex = (event) => {
+    const viewSize = event.nativeEvent.layoutMeasurement.width;
+    const contentOffset = event.nativeEvent.contentOffset.x;
+
+    const count = Math.round(contentOffset / viewSize);
+    setEnd(count);
+  };
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setEnd(() => end + 1),
+  //       reff.current.scrollTo({
+  //         animated: true,
+  //         y: 0,
+  //         x: width * end,
+  //       });
+  //   }, 3000);
+  // }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -53,8 +113,60 @@ const Home = (props) => {
         onPressNotif={() => props.navigation.navigate('Notifikasi')}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{height: 200, padding: 10}}>
-          <Image source={banner} style={styles.image} />
+        {/* <FlatListSlider
+          data={img}
+          width={275}
+          timer={4000}
+          component={<Preview />}
+          onPress={(item) => alert(JSON.stringify(item))}
+          indicatorActiveWidth={40}
+          contentContainerStyle={styles.contentStyle}
+        /> */}
+        <View style={{position: 'relative'}}>
+          <ScrollView
+            horizontal={true}
+            pagingEnabled
+            ref={reff}
+            onMomentumScrollEnd={setSelectedIndex}>
+            {img.map((image, i) => {
+              return (
+                <View style={{height: 220, width: width, padding: 10}} key={i}>
+                  <Image
+                    source={{uri: image.image}}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      resizeMode: 'cover',
+                      borderRadius: 10,
+                    }}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              position: 'absolute',
+              bottom: 20,
+              left: 20,
+            }}>
+            {img.map((image, i) => {
+              return (
+                <View
+                  style={{
+                    backgroundColor: '#f8f8f8',
+                    height: 12,
+                    width: 12,
+                    margin: 2,
+                    borderRadius: 6,
+                    opacity: i === end ? 0.3 : 1,
+                  }}
+                />
+              );
+            })}
+          </View>
         </View>
 
         <View
@@ -76,11 +188,12 @@ const Home = (props) => {
         <CardHorizontal
           image={'https://via.placeholder.com/600/771796'}
           title="recommendations for you"
-          navigation={(i) => props.navigation.navigate('Detail')}
+          navigation={(i) => props.navigation.navigate('Detail', {id: i})}
         />
         <CardHorizontal
           image={'https://via.placeholder.com/600/45601a'}
           title="Barang Populer"
+          navigation={(i) => alert(i)}
         />
         <CardHorizontal
           image={'https://via.placeholder.com/600/474645'}
@@ -167,6 +280,12 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#cacaca',
     marginTop: 10,
+  },
+  contentStyle: {
+    paddingHorizontal: 16,
+  },
+  textH: {
+    padding: 20,
   },
 });
 

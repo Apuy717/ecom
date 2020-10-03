@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {AntDesign, Ionicons} from '../tools/Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import TextString from '../tools/fonts';
 
 const HeaderSearch = (props) => {
   return (
@@ -13,7 +14,10 @@ const HeaderSearch = (props) => {
             style={styles.touchSearch}
             onPress={props.onPress}>
             <AntDesign name="search1" style={styles.iconSearch} />
-            <Text style={styles.TextInput}>{props.placeholder}</Text>
+
+            <TextString>
+              <Text style={styles.TextInput}>{props.placeholder}</Text>
+            </TextString>
           </TouchableOpacity>
         </View>
       </View>

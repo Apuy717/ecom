@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 
 const Category = (props) => {
-  console.log(props.data);
   return (
     <View
       style={{

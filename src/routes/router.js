@@ -51,6 +51,7 @@ const TabNav = () => {
         },
         labelStyle: {
           marginBottom: '8%',
+          fontFamily: 'Roboto-Bold',
         },
       }}>
       <Tab.Screen name="Home" component={Home} />
