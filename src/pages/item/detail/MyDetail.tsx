@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import {onScrollEvent, useValue} from 'react-native-redash';
 import CardHorizontal from '../../../components/layout/cardHorizontal';
@@ -21,6 +22,7 @@ export default ({route}) => {
   return (
     <View style={styles.container}>
       <HeaderImage {...{y}} />
+
       <Animated.ScrollView
         showsVerticalScrollIndicator={false}
         ref={scrollView}

@@ -9,6 +9,8 @@ import Messages from '../pages/user/notification/messages';
 import Notifications from '../pages/user/notification/notifications';
 import DetailItem from './../pages/item/detail/index';
 import DetailMessage from './../pages/user/notification/detailMessage';
+import authLogin from '../pages/auth/login';
+
 
 export {
   Home,
@@ -22,4 +24,5 @@ export {
   Notifications,
   DetailItem,
   DetailMessage,
+  authLogin,
 };

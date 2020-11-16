@@ -15,6 +15,7 @@ import {
   Notifications,
   DetailItem,
   DetailMessage,
+  authLogin,
 } from '.';
 import {AntDesign} from '../components/tools/Icon';
 
@@ -75,6 +76,7 @@ const StackNav = () => {
       <Stack.Screen name="Notifikasi" component={Notifications} />
       <Stack.Screen name="Detail" component={DetailItem} />
       <Stack.Screen name="DetailMessage" component={DetailMessage} />
+      <Stack.Screen name="Login" component={authLogin} />
     </Stack.Navigator>
   );
 };

@@ -15,11 +15,6 @@ const styles = StyleSheet.create({
     left: 0,
     width: wWidth,
   },
-  im: {
-    height: '100%',
-    width: 200,
-    resizeMode: 'cover',
-  },
 });
 
 interface HeaderImageProps {
@@ -40,28 +35,11 @@ export default ({y}: HeaderImageProps) => {
 
   const dat = [1, 2, 3, 4, 5, 6, 7];
   return (
-    <Animated.View style={[styles.image, {top, height}]}>
-      <ScrollView horizontal={true}>
-        {dat.map((img, i) => (
-          <View style={{width: 100, height: 100, margin: 10}}>
-            <View
-              style={{
-                backgroundColor: 'red',
-                height: 100,
-                width: 100,
-                margin: 2,
-              }}
-            />
-          </View>
-        ))}
-      </ScrollView>
-    </Animated.View>
+    <>
+      <Animated.Image
+        source={backgroundImage}
+        style={[styles.image, {top, height}]}
+      />
+    </>
   );
 };
-
-// img.map((im) => (
-//   <Animated.Image
-//     source={{uri: im.image}}
-//     style={[styles.image, {top, height}]}
-//   />
-// ));

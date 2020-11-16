@@ -4,29 +4,15 @@ import {ScrollView} from 'react-native-gesture-handler';
 import request from './../../../config/apiServices';
 
 const Profile = (props) => {
-  const [data, setData] = useState({data: 'aku'});
-
-  useEffect(() => {
-    request
-      .get('posts')
-      .then((r) => {
-        setData(r);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.wrap}>
         <View style={styles.child}></View>
       </View>
       <View>
-        <ScrollView>
-          {data.map((i) => (
-            <Text>{i.title}</Text>
-          ))}
-        </ScrollView>
+        <Text onPress={() => props.navigation.navigate('Login')}>
+          hello world
+        </Text>
       </View>
     </View>
   );

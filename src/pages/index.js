@@ -105,7 +105,7 @@ const Home = (props) => {
     <View style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
       <HeaderSearch
-        placeholder="Cari barang yang anda ..."
+              placeholder="Cari barang yang anda ..."
         counterNotif={9 + '+'}
         counterCart={7 + '+'}
         onPress={() => props.navigation.navigate('Search')}
